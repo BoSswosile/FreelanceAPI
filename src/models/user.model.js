@@ -55,6 +55,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  freelance: [{ type: mongoose.Schema.Types.ObjectId, ref: "Freelance" }],
   isadmin: {
     type: Boolean,
     default: false,

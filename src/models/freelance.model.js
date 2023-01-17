@@ -9,14 +9,8 @@ const freelanceSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  skills: {
-    type: Array,
-    required: true,
-  },
-  jobs: {
-    type: Array,
-    required: true,
-  },
+  skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "Skills" }],
+  jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: "Jobs" }],
 });
 
 module.exports = mongoose.model("Freelance", freelanceSchema);

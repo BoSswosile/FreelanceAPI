@@ -31,7 +31,7 @@ exports.login = (req, res) => {
         });
       }
       let passwordValid = bcrypt.compareSync(req.body.password, user.password);
-      if (passwordValid) {
+      if (!passwordValid) {
         return res.status(401).send({
           message: "password not valid",
           auth: false,
