@@ -4,10 +4,14 @@ var jwt = require("jsonwebtoken");
 
 exports.register = async (req, res, next) => {
   const newUser = new User({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    password: req.body.password,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    address: req.body.address,
+    city: req.body.city,
+    postal_code: req.body.postal_code,
+    phone: req.body.phone,
     email: req.body.email,
+    password: req.body.password,
   });
 
   try {

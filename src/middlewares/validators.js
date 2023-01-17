@@ -5,10 +5,10 @@ exports.checkEmail = [
 ];
 
 exports.checkIdentity = [
-  body("firstName")
+  body("firstname")
     .isAlphanumeric()
     .withMessage("FirstName format is not valide"),
-  body("lastName")
+  body("lastname")
     .isAlphanumeric()
     .withMessage("lastName format is not valide"),
 ];
