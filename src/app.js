@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const apiRouter = require("./routes");
+const errorHandler = require('./middlewares/errosHandling');
 
 app.use(bodyParser.json());
 
@@ -17,6 +18,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use("/api/v1", apiRouter);
+app.use(errorHandler);
 
 app.listen(process.env.PORT, function () {
   console.log("Server launch");
