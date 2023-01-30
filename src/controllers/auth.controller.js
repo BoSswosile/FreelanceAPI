@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 var jwt = require("jsonwebtoken");
 
-let mailer = nodemailer.createTransport({
+/*let mailer = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
   secure: false,
@@ -11,7 +11,7 @@ let mailer = nodemailer.createTransport({
     user: process.env.MAIL,
     pass: process.env.MAIL_PASS,
   },
-});
+});*/
 
 exports.register = async (req, res, next) => {
   const newUser = new User({
@@ -27,7 +27,7 @@ exports.register = async (req, res, next) => {
 
   try {
     const newUserToSave = await newUser.save();
-    sendMail(req.body.email);
+    // sendMail(req.body.email);
     return res.send(newUserToSave);
   } catch (err) {
     next(err);
@@ -64,7 +64,7 @@ exports.login = (req, res) => {
     })
     .catch((err) => res.Status(400).send(err));
 };
-
+/*
 const sendMail = (email) => {
   let mailOptions = {
     from: '"FreelanceAPI"' + process.env.MAIL,
@@ -80,3 +80,4 @@ const sendMail = (email) => {
     console.log("Message sent: %s", info.messageId);
   });
 };
+*/
