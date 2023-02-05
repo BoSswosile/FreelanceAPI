@@ -7,6 +7,7 @@ const apiRouter = require("./routes");
 const errorHandler = require('./middlewares/errosHandling');
 
 app.use(bodyParser.json());
+mongoose.set('strictQuery', true);
 
 mongoose
   .connect(

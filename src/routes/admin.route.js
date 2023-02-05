@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../controllers/auth.controller');
-const { checkEmail, checkIdentity,  checkPassword, validation } = require('../middlewares/validators');
+const adminController = require('../controllers/admin.controller')
+const verifyToken = require('../middlewares/verifyToken');
+const verifyIsAdmin = require('../middlewares/verifyIsAdmin')
 
-// router.post('/register', checkEmail, checkPassword, checkIdentity, validation, authController.register);
+router.get('/getUser/:id', verifyToken, verifyIsAdmin, adminController.viewUser);
+router.delete('/removeUser/:id', verifyToken, verifyIsAdmin, adminController.deleteUser);
+router.post('/editUser/:id', verifyToken, verifyIsAdmin, adminController.updateUser);
 // router.post('/login', checkEmail, checkPassword, validation, authController.login);
 
 module.exports = router;

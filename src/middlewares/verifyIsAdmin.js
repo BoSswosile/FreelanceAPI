@@ -1,7 +1,7 @@
 function verifyIsAdmin(req, res, next) {
   console.log(req.userToken);
-  if (!req.userToken.isAdmin) {
-    return res.status('401').send({
+  if (!req.userToken.isadmin) {
+    return res.status(403).send({
       auth: false,
       message: "you must be Admin"
     })

@@ -1,27 +1,26 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
-function verifyToken (req, res, next) {
-
-  let token = req.headers.authorization.replace('Bearer ', '');
+function verifyToken(req, res, next) {
+  let token = req.headers.authorization.replace("Bearer ", "");
   console.log(token);
   if (!token) {
-    return res.status(403).send({
+    return res.status(401).send({
       auth: false,
       token: null,
-      message:"Missing token"
-    })
+      message: "Missing token",
+    });
   }
   jwt.verify(token, process.env.JWT_SECRET, function (error, jwtDecoded) {
     if (error) {
-      return res.status(401).send({
+      return res.status(403).send({
         auth: false,
         token: null,
-        message:"none authorized"
-      })
+        message: "none authorized",
+      });
     }
     req.userToken = jwtDecoded;
     next();
-  })
+  });
 }
 
 module.exports = verifyToken;
