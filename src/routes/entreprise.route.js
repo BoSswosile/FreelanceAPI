@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../controllers/auth.controller');
-const { checkEmail, checkIdentity,  checkPassword, validation } = require('../middlewares/validators');
+const entrepriseController = require('../controllers/entreprise.controller');
+const verifyToken = require('../middlewares/verifyToken');
 
-// router.post('/register', checkEmail, checkPassword, checkIdentity, validation, authController.register);
-// router.post('/login', checkEmail, checkPassword, validation, authController.login);
-
+router.post('/createMissions', verifyToken, entrepriseController.createMissions);
+router.delete('/removeMissions/:id', verifyToken, entrepriseController.deleteMissions);
+router.post('/editMissions/:id', verifyToken, entrepriseController.updateMissions);
 module.exports = router;

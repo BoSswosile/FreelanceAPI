@@ -8,10 +8,6 @@ router.get('/getUser/:id', verifyToken, verifyIsAdmin, adminController.getUser);
 router.delete('/removeUser/:id', verifyToken, verifyIsAdmin, adminController.deleteUser);
 router.post('/editUser/:id', verifyToken, verifyIsAdmin, adminController.updateUser);
 router.get('/getMissions', verifyToken, verifyIsAdmin, adminController.getMissions);
-router.post('/createMissions', verifyToken, verifyIsAdmin, adminController.createMissions);
-router.delete('/removeMissions/:id', verifyToken, verifyIsAdmin, adminController.deleteMissions);
-//
-router.post('/editMissions/:id', verifyToken, verifyIsAdmin, adminController.updateMissions);
 router.get('/getJobs', verifyToken, verifyIsAdmin, adminController.getJobs);
 router.post('/createJobs', verifyToken, verifyIsAdmin, adminController.createJobs);
 router.delete('/removeJobs/:id', verifyToken, verifyIsAdmin, adminController.deleteJobs);
