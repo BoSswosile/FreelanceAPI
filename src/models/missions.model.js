@@ -15,7 +15,7 @@ const missionsSchema = mongoose.Schema({
     maxLength: 100,
   },
   title: {
-    type: Number,
+    type: String,
     required: true,
     maxLength: 50,
   },
