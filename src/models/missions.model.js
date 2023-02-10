@@ -19,11 +19,7 @@ const missionsSchema = mongoose.Schema({
     required: true,
     maxLength: 50,
   },
-  job_type: {
-    type: String,
-    required: true,
-    maxLength: 25,
-  },
+  jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: "Jobs" }],
   skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "Skills" }],
   status: {
     type: String,

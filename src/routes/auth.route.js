@@ -7,3 +7,4 @@ router.post('/register', checkEmail, checkPassword, checkIdentity, validation, a
 router.post('/login', checkEmail, checkPassword, validation, authController.login);
 
 module.exports = router;
+

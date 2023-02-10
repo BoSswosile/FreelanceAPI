@@ -55,7 +55,15 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  freelance: [{ type: mongoose.Schema.Types.ObjectId, ref: "Freelance" }],
+  isfreelance: {type: mongoose.Schema.Types.ObjectId,
+  ref: "Freelance",
+  default: null,
+  },
+  iscompany: {
+  type: mongoose.Schema.Types.ObjectId,
+  ref: "Freelance",
+  default: null,
+},
   isadmin: {
     type: Boolean,
     default: false,

@@ -49,7 +49,7 @@ exports.resetPassword = (req, res) => {
   var result = Math.random().toString(36).substring(2, 12);
   var password = bcrypt.hashSync(result, 10);
   console.log(result);
-  User.findByIdAndUpdate(req.params.id, {password})
+  User.findByIdAndUpdate(req.params.id, { password })
     .then((user) => {
       if (!user) {
         return res.status(404).send({
@@ -64,5 +64,12 @@ exports.resetPassword = (req, res) => {
     .catch((err) => {
       console.error(err);
     });
-  
+};
+
+exports.searchBar = (req, res) => {
+  User.find({
+    $or: [{ firstname: req.body.search }, { lastname: req.body.search }, { city: req.body.search }],
+  })
+    .then((users) => res.send(users))
+    .catch((err) => res.status(400).send(err));
 };

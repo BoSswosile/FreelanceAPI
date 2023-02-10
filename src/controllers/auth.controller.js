@@ -43,6 +43,8 @@ exports.login = (req, res) => {
         {
           id: user._id,
           isadmin:user.isadmin,
+          iscompany:user.iscompany,
+          isfreelance:user.isfreelance,
         },
         process.env.JWT_SECRET
       );
